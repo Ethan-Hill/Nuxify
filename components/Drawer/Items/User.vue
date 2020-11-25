@@ -5,14 +5,11 @@
     onMouseOut="this.style.background='#040404'"
     @click="account"
   >
-    <div>
-      <img
-        :src="
-          this.$auth.user.images[0] ||
-          'https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png'
-        "
-        width="25px"
-      />
+    <div v-if="this.$auth.user.images[0]">
+      <img :src="this.$auth.user.images[0]" width="25px" />
+    </div>
+    <div v-else>
+      <img src="~/assets/avatar.png" width="25px" />
     </div>
     <div>
       <h1>{{ this.$auth.user.display_name }}</h1>

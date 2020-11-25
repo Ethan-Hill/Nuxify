@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Nav from '../components/Nav'
+import Nav from '../components/Drawer/Nav'
 export default {
   components: {
     Nav,

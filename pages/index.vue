@@ -18,7 +18,7 @@
 
 <script>
 import axios from 'axios'
-import Nav from '../components/Nav'
+import Nav from '../components/Drawer/Nav'
 
 export default {
   components: {

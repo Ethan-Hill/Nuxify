@@ -15,21 +15,25 @@
         <CurrentlyPlaying :player="player" />
         <Playlists :playlist="playlists" />
       </div>
+      <PlayerController :player="player" />
     </main>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-
-import Nav from '../components/Nav'
-import CurrentlyPlaying from '../components/CurrentlyPlaying'
-import Playlists from '../components/Playlists'
+import { mapGetters } from 'vuex'
+import Nav from '../components/Drawer/Nav'
+import CurrentlyPlaying from '../components/Player/CurrentlyPlaying'
+import Playlists from '../components/Player/Playlists'
+import PlayerController from '../components/Player/Player-Bottom-Panel/PlayerController'
 export default {
+  middleware: ['auth'],
   components: {
     Nav,
     CurrentlyPlaying,
     Playlists,
+    PlayerController,
   },
   async fetch() {
     const auth = this.$auth.strategy.token.get()
@@ -42,15 +46,7 @@ export default {
       .then((resp) => {
         this.$auth.setUser(resp.data)
       })
-    await axios
-      .get('https://api.spotify.com/v1/me/player', {
-        headers: {
-          Authorization: auth,
-        },
-      })
-      .then((resp) => {
-        this.player = resp.data
-      })
+
     await axios
       .get('https://api.spotify.com/v1/me/playlists', {
         headers: {
@@ -63,14 +59,27 @@ export default {
   },
   data() {
     return {
-      player: null,
       playlists: null,
     }
   },
+  computed: {
+    ...mapGetters(['player']),
+  },
+  mounted() {
+    this.refresh()
+  },
   created() {
+    this.$store.dispatch('load')
     if (!this.$auth.loggedIn) {
       this.$router.push('/')
     }
+  },
+  methods: {
+    refresh() {
+      setInterval(() => {
+        this.$store.dispatch('load')
+      }, 1000)
+    },
   },
 }
 </script>

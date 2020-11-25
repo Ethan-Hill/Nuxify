@@ -25,16 +25,16 @@
       </h1>
       <NavItem :menu-item="{ name: 'Home', href: '/' }" />
       <NavItem :menu-item="{ name: 'Player', href: '/player' }" />
-      <Logout v-if="this.$auth.loggedIn" />
+      <Logout v-if="this.$auth.loggedIn" class="mt-auto mb-48" />
     </nav>
   </div>
 </template>
 
 <script>
-import NavItem from '../components/NavItem'
-import Login from '../components/LoginButton'
-import User from '../components/User'
-import Logout from '../components/Logout'
+import NavItem from '../Drawer/Items/NavItem'
+import Login from '../Drawer/Items/LoginButton'
+import User from '../Drawer/Items/User'
+import Logout from '../Drawer/Items/Logout'
 export default {
   components: {
     NavItem,

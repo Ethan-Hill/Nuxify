@@ -19,12 +19,14 @@ export const actions = {
           Authorization: auth,
         },
       })
-      .then(async (resp) => {
-        await commit('setPlayer', resp.data)
+      .then((resp) => {
+        commit('setPlayer', resp.data)
       })
   },
 }
 
 export const getters = {
-  player: (state) => state.player,
+  load(state) {
+    return state.player
+  },
 }
