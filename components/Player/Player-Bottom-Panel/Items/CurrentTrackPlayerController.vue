@@ -19,7 +19,7 @@
       style="width: 300px; height: 120px; background-color: #181818"
     >
       <div class="ml-5">
-        <h1 class="text-3xl">Currently Nothing Playing</h1>
+        <h1 class="text-lg">Currently Nothing Playing</h1>
       </div>
     </div>
   </div>
