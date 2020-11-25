@@ -69,6 +69,7 @@ export default {
         scheme: 'oauth2',
         endpoints: {
           authorization: 'https://accounts.spotify.com/authorize',
+          logout: 'https://nuxify.vercel.app/',
           userInfo: 'https://api.spotify.com/v1/me',
         },
         token: {
