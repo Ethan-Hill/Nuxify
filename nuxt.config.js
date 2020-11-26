@@ -83,7 +83,7 @@ export default {
         },
         responseType: 'token',
         state: 'UNIQUE_AND_NON_GUESSABLE',
-        clientId: 'b8ac77ac46a343cbb31b5179c203cbab',
+        clientId: process.env.CLIENT_ID,
         scope: [
           'user-read-private',
           'user-read-email',
