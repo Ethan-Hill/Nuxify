@@ -9,7 +9,7 @@
       <div
         v-for="searchedTrack in searchedTracks"
         :key="searchedTrack.id"
-        class="flex flex-col justify-around items-center ml-5 py-5 my-3 transition rounded duration-100 ease-in-out cursor-pointer text-center"
+        class="flex flex-col justify-around items-center ml-5 py-5 my-5 transition rounded duration-100 ease-in-out cursor-pointer text-center"
         onMouseOver="this.style.background='#282828'"
         onMouseOut="this.style.background='#181818'"
         style="width: 300px; min-height: 350px"
@@ -18,11 +18,11 @@
           <img :src="searchedTrack.album.images[0].url" width="70px" alt="" />
         </div>
         <div class="flex flex-col items-center mt-5 ml-5">
-          <h1 class="text-3xl">{{ searchedTrack.name }}</h1>
+          <h1 class="text-2xl">{{ searchedTrack.name }}</h1>
           <h1 class="text-lg mt-6">{{ searchedTrack.artists[0].name }}</h1>
         </div>
         <div
-          class="flex items-center mt-5 ml-5 py-1 px-3 rounded"
+          class="flex items-center mt-2 ml-5 py-1 px-3 rounded"
           style="background-color: #282828"
           onMouseOver="this.style.background='#383838'"
           onMouseOut="this.style.background='#282828'"
