@@ -11,6 +11,7 @@
       <div class="flex flex-col text-center">
         <h1 class="text-5xl">Welcome to Nuxify</h1>
         <h2 class="text-4xl" style="color: #1ed760">All in one Spotify</h2>
+        <h1 class="text-lg">Currently a work in progress</h1>
       </div>
     </main>
   </div>

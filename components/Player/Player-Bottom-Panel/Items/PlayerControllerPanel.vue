@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="player"
     class="flex items-center justify-around"
     style="width: 200px; height: 80px"
   >

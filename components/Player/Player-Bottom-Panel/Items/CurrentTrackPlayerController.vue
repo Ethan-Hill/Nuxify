@@ -11,7 +11,7 @@
   <div
     v-else
     class="flex flex-col justify-evenly"
-    style="width: 300px; height: 120px; background-color: #181818"
+    style="width: 300px; height: 80px"
   >
     <div class="ml-5">
       <h1 class="text-lg">Currently Nothing Playing</h1>
