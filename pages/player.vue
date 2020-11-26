@@ -11,7 +11,9 @@
       <div class="flex flex-col mt-12 text-center">
         <h1 class="text-6xl" style="color: #1ed760">Spotify Player</h1>
       </div>
-      <div class="flex justify-evenly flex-wrap">
+      <Search />
+      <Results v-if="searchedTracks" />
+      <div class="flex justify-between mb-24 flex-wrap" style="width: 1300px">
         <CurrentlyPlaying :player="player" />
         <Playlists :playlist="playlists" />
       </div>
@@ -27,6 +29,8 @@ import Nav from '../components/Drawer/Nav'
 import CurrentlyPlaying from '../components/Player/CurrentlyPlaying'
 import Playlists from '../components/Player/Playlists'
 import PlayerController from '../components/Player/Player-Bottom-Panel/PlayerController'
+import Search from '../components/Player/Search'
+import Results from '../components/Player/Search/Results'
 export default {
   middleware: ['auth'],
   components: {
@@ -34,6 +38,8 @@ export default {
     CurrentlyPlaying,
     Playlists,
     PlayerController,
+    Search,
+    Results,
   },
   async fetch() {
     const auth = this.$auth.strategy.token.get()
@@ -64,12 +70,13 @@ export default {
   },
   computed: {
     ...mapGetters(['player']),
+    ...mapGetters(['searchedTracks']),
   },
   mounted() {
     this.refresh()
   },
   created() {
-    this.$store.dispatch('load')
+    this.$store.dispatch('loadPlayer')
     if (!this.$auth.loggedIn) {
       this.$router.push('/')
     }
@@ -77,7 +84,7 @@ export default {
   methods: {
     refresh() {
       setInterval(() => {
-        this.$store.dispatch('load')
+        this.$store.dispatch('loadPlayer')
       }, 1000)
     },
   },

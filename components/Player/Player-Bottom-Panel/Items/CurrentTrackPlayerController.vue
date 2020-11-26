@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ml-5">
     <div
       v-if="player.item"
       class="flex items-center mr-5"

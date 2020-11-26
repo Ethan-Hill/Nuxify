@@ -36,5 +36,8 @@ export default {
         this.$auth.setUser(resp.data)
       })
   },
+  created() {
+    this.$store.dispatch('loadPlaylists')
+  },
 }
 </script>

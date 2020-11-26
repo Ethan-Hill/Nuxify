@@ -2,7 +2,7 @@
   <div>
     <h1 class="mb-5 text-2xl">Playlists</h1>
     <div
-      v-if="playlists"
+      v-if="playlist"
       class="flex flex-col mr-5 overflow-y-auto"
       style="min-width: 550px; height: 300px; background-color: #181818"
     >
@@ -46,14 +46,6 @@
 export default {
   // eslint-disable-next-line vue/require-prop-types
   props: ['playlist'],
-  data() {
-    return {
-      playlists: [],
-    }
-  },
-  mounted() {
-    this.playlists = this.playlist[0]
-  },
   methods: {
     playlistURL(key) {
       location.href = `https://open.spotify.com/playlist/${key}`

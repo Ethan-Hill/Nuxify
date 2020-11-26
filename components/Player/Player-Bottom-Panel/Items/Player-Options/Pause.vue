@@ -23,7 +23,7 @@ export default {
           Authorization: auth,
         },
       }).then(async () => {
-        await this.$store.dispatch('load')
+        await this.$store.dispatch('loadPlayer')
       })
     },
   },

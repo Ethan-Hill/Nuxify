@@ -2,7 +2,7 @@
   <div>
     <h1 class="mb-5 text-2xl">Currently Playing</h1>
     <div
-      v-if="player.item"
+      v-if="player"
       class="flex flex-col mb-2 justify-evenly mr-5 transition duration-100 ease-in-out cursor-pointer"
       style="width: 550px; height: 300px; background-color: #181818"
       onMouseOver="this.style.background='#282828'"
