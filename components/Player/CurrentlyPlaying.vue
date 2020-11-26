@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-6">
     <h1 class="my-5 text-2xl">Currently Playing</h1>
     <div
       v-if="player"

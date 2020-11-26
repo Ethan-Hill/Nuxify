@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mx-6">
     <h1 class="mb-5 my-5 text-2xl">Playlists</h1>
     <div
       v-if="playlist"
