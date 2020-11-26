@@ -1,4 +1,4 @@
-# nuxify
+# Nuxify
 
 ## Build Setup
 
