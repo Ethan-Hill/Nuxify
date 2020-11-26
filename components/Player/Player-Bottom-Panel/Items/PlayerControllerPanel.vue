@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex items-center justify-around"
-    style="width: 300px; height: 80px"
+    style="width: 200px; height: 80px"
   >
     <PreviousTrack :player="player" />
     <Play :player="player" />

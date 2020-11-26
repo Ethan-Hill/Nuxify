@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="mb-5 text-2xl">Currently Playing</h1>
+    <h1 class="my-5 text-2xl">Currently Playing</h1>
     <div
       v-if="player"
       class="flex flex-col mb-2 justify-evenly mr-5 transition duration-100 ease-in-out cursor-pointer"

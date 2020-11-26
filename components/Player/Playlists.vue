@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="mb-5 text-2xl">Playlists</h1>
+    <h1 class="mb-5 my-5 text-2xl">Playlists</h1>
     <div
       v-if="playlist"
       class="flex flex-col mr-5 overflow-y-auto"

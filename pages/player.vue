@@ -8,12 +8,15 @@
       class="flex flex-col items-center justify-around w-screen"
       style="background-color: #121212 !important; background-size: auto"
     >
-      <div class="flex flex-col mt-12 text-center">
+      <div class="flex justify-center flex-col mt-12 text-center">
         <h1 class="text-6xl" style="color: #1ed760">Spotify Player</h1>
       </div>
       <Search />
       <Results v-if="searchedTracks" />
-      <div class="flex justify-between mb-24 flex-wrap" style="width: 1300px">
+      <div
+        class="flex justify-center mb-24 flex-wrap"
+        style="max-width: 1300px"
+      >
         <CurrentlyPlaying :player="player" />
         <Playlists :playlist="playlists" />
       </div>

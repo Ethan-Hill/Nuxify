@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <h1 class="mb-5 text-2xl">Tracks</h1>
+  <div class="mx-6">
+    <h1 class="mb-5 mx-6 flex-wrap text-2xl">Tracks</h1>
     <div
       v-if="tracks"
       class="flex flex-wrap mb-24 justify-around overflow-y-auto"
-      style="width: 1300px; height: 400px; background-color: #181818"
+      style="max-width: 1300px; height: 400px; background-color: #181818"
     >
       <div
         v-for="searchedTrack in searchedTracks"
