@@ -48,7 +48,7 @@ export default {
   props: ['playlists'],
   methods: {
     playlistURL(key) {
-      location.href = `http://localhost:3000/playlist/${key}`
+      location.href = `https://nuxify.vercel.app/playlist/${key}`
     },
   },
 }
