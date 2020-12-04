@@ -1,15 +1,9 @@
 <template>
-  <div
-    class="flex text-white min-h-screen"
-    style="background-color: #121212 !important"
-  >
+  <div class="flex text-white min-h-screen bg-bg">
     <Nav />
-    <main
-      class="flex flex-col items-center justify-around w-screen"
-      style="background-color: #121212 !important; background-size: auto"
-    >
+    <main class="flex flex-col items-center justify-around w-screen">
       <div class="flex justify-center flex-col mt-12 text-center">
-        <h1 class="text-6xl" style="color: #1ed760">Spotify Player</h1>
+        <h1 class="text-6xl text-spotify">Spotify Player</h1>
       </div>
       <Search />
       <Results v-if="searchedTracks" />
@@ -18,7 +12,7 @@
         style="max-width: 1300px"
       >
         <CurrentlyPlaying :player="player" />
-        <Playlists :playlist="playlists" />
+        <Playlists v-if="playlists" :playlists="playlists.items" />
       </div>
       <PlayerController :player="player" />
     </main>
@@ -55,31 +49,16 @@ export default {
       .then((resp) => {
         this.$auth.setUser(resp.data)
       })
-
-    await axios
-      .get('https://api.spotify.com/v1/me/playlists', {
-        headers: {
-          Authorization: auth,
-        },
-      })
-      .then((resp) => {
-        this.playlists = resp.data.items
-      })
-  },
-  data() {
-    return {
-      playlists: null,
-    }
   },
   computed: {
-    ...mapGetters(['player']),
-    ...mapGetters(['searchedTracks']),
+    ...mapGetters(['player', 'searchedTracks', 'playlists']),
   },
   mounted() {
     this.refresh()
   },
   created() {
     this.$store.dispatch('loadPlayer')
+    this.$store.dispatch('loadPlaylists')
     if (!this.$auth.loggedIn) {
       this.$router.push('/')
     }
@@ -88,7 +67,8 @@ export default {
     refresh() {
       setInterval(() => {
         this.$store.dispatch('loadPlayer')
-      }, 1000)
+        this.$store.dispatch('loadPlaylists')
+      }, 3000)
     },
   },
 }

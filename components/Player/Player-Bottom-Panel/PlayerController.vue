@@ -3,9 +3,9 @@
     class="flex items-center flex-wrap justify-between fixed bottom-0 w-screen min-h-24"
     style="background-color: #282828"
   >
-    <CurrentTrackPlayerController class="ml-5" :player="player" />
-    <PlayerControllerPanel :player="player" />
-    <Volume class="mr-5" :player="player" />
+    <CurrentTrackPlayerController class="ml-5 flex-1" :player="player" />
+    <PlayerControllerPanel class="flex-1" :player="player" />
+    <Volume class="mr-5 flex-1" :player="player" />
   </nav>
 </template>
 

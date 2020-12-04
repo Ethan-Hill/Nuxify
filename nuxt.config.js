@@ -41,7 +41,11 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
+    '@nuxtjs/toast',
   ],
+  toast: {
+    position: 'top-center',
+  },
   purgeCSS: {
     enabled: false,
   },
@@ -50,7 +54,6 @@ export default {
   axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
   router: {
     router: {
       middleware: ['auth'],
@@ -89,6 +92,8 @@ export default {
           'user-read-email',
           'user-read-playback-state',
           'user-modify-playback-state',
+          'playlist-modify-public',
+          'playlist-modify-private',
         ],
       },
     },

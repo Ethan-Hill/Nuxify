@@ -7,8 +7,7 @@
     </div>
     <nav
       :class="open ? 'navbar-open' : 'navbar-close'"
-      class="flex flex-col navbar w-64 absolute top-0 h-screen"
-      style="background-color: #040404"
+      class="flex flex-col navbar w-64 absolute top-0 h-screen bg-navbg"
     >
       <div class="flex pr-2 justify-end">
         <button class="p-2 text-white text-xl font-bold" @click="toggle()">
@@ -17,10 +16,7 @@
       </div>
       <Login v-if="!this.$auth.loggedIn" :login="{ name: 'Login' }" />
       <User v-else />
-      <h1
-        class="text-3xl text-center mt-10 font-bold pt-2"
-        style="color: #1ed760"
-      >
+      <h1 class="text-3xl text-center mt-10 font-bold pt-2 text-spotify">
         Menu
       </h1>
       <NavItem :menu-item="{ name: 'Home', href: '/' }" />

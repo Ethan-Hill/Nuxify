@@ -1,12 +1,12 @@
 <template>
   <div
     v-if="player"
-    class="flex items-center justify-around"
-    style="width: 200px; height: 80px"
+    class="flex items-center justify-center"
+    style="height: 80px"
   >
     <PreviousTrack :player="player" />
-    <Play :player="player" />
-    <Pause :player="player" />
+    <Play :player="player" class="mx-5" />
+    <Pause :player="player" class="mx-5" />
     <NextTrack :player="player" />
   </div>
 </template>
