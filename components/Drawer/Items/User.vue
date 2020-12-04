@@ -6,7 +6,7 @@
     @click="account"
   >
     <div v-if="this.$auth.user.images[0]">
-      <img :src="this.$auth.user.images[0]" width="25px" />
+      <img :src="this.$auth.user.images[0].url" width="25px" />
     </div>
     <div v-else>
       <svg
