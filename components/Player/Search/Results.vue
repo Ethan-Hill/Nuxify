@@ -84,7 +84,12 @@ export default {
         },
         body: JSON.stringify(data),
       }).then(async (resp) => {
-        await this.$store.dispatch('loadPlayer')
+        if (resp.ok) {
+          this.$toast.success('Successfully playing')
+          await this.$store.dispatch('loadPlaylists')
+        } else {
+          this.$toast.error('Failed to play', { duration: 2500 })
+        }
       })
     },
     async addToQueue(uri) {
@@ -95,7 +100,12 @@ export default {
           Authorization: auth,
         },
       }).then(async (resp) => {
-        await this.$store.dispatch('loadPlayer')
+        if (resp.ok) {
+          this.$toast.success('Successfully added')
+          await this.$store.dispatch('loadPlaylists')
+        } else {
+          this.$toast.error('Failed to add', { duration: 2500 })
+        }
       })
     },
   },

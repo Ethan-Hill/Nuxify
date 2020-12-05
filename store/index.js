@@ -4,6 +4,7 @@ export const state = () => ({
   player: null,
   searchedTracks: null,
   playlists: null,
+  playlist: null,
 })
 
 export const mutations = {
@@ -17,6 +18,12 @@ export const mutations = {
 
   setPlaylists(state, payload) {
     state.playlists = payload
+  },
+  setPlaylist(state, payload) {
+    state.playlist = payload
+  },
+  setUser(state, payload) {
+    state.user = payload
   },
 }
 
@@ -62,10 +69,36 @@ export const actions = {
         await commit('setTracks', resp.data.tracks.items)
       })
   },
+  async GetUser({ commit }) {
+    const auth = this.$auth.strategy.token.get()
+    await axios
+      .get('https://api.spotify.com/v1/me', {
+        headers: {
+          Authorization: auth,
+        },
+      })
+      .then(async (resp) => {
+        await commit('setUser', resp.data)
+      })
+  },
+  async GetPlaylist({ commit }, id) {
+    const auth = this.$auth.strategy.token.get()
+    await axios
+      .get(`https://api.spotify.com/v1/playlists/${id}`, {
+        headers: {
+          Authorization: auth,
+        },
+      })
+      .then(async (resp) => {
+        await commit('setPlaylist', resp.data)
+      })
+  },
 }
 
 export const getters = {
   player: (state) => state.player,
+  user: (state) => state.user,
+  playlist: (state) => state.playlist,
   playlists: (state) => state.playlists,
   searchedTracks: (state) => state.searchedTracks,
 }

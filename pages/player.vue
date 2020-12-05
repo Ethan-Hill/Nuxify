@@ -11,7 +11,10 @@
         class="flex justify-center mb-24 flex-wrap"
         style="max-width: 1300px"
       >
-        <CurrentlyPlaying :player="player" />
+        <CurrentlyPlaying
+          v-if="player && player.item && player.device"
+          :player="player"
+        />
         <Playlists v-if="playlists" :playlists="playlists.items" />
       </div>
       <PlayerController :player="player" />

@@ -1,9 +1,14 @@
 <template>
   <div class="flex text-white min-h-screen bg-bg">
     <Nav />
-    <main class="flex flex-col items-center justify-start w-screen">
+    <main
+      v-if="playlist && playlists"
+      class="flex flex-col items-center justify-start w-screen"
+    >
       <div class="flex justify-center flex-col my-12 text-center text-spotify">
-        <h1 v-if="playlist" class="text-6xl">{{ playlist.name }}</h1>
+        <h1 class="text-6xl">
+          {{ playlist.name }}
+        </h1>
       </div>
 
       <div class="flex flex-col">
@@ -15,7 +20,7 @@
               class="shadow overflow-hidden sm:rounded-lg overflow-y-auto scrollbar-track-gray"
               style="max-height: 65vh"
             >
-              <Table :tracks="tracks" :playlists="playlists.items" />
+              <Table :tracks="playlist.tracks.items" :playlists="playlists" />
             </div>
           </div>
         </div>
@@ -26,7 +31,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { mapGetters } from 'vuex'
 import Nav from '../../components/Drawer/Nav'
 import Table from '../../components/Playlist/Table'
@@ -38,37 +42,15 @@ export default {
     PlayerController,
     Table,
   },
-
-  async fetch() {
-    const auth = this.$auth.strategy.token.get()
-    await axios
-      .get(
-        `https://api.spotify.com/v1/playlists/${this.$route.params.playlist}`,
-        {
-          headers: {
-            Authorization: auth,
-          },
-        }
-      )
-      .then((resp) => {
-        this.playlist = resp.data
-        this.tracks = resp.data.tracks.items
-      })
+  async asyncData({ store, route }) {
+    await store.dispatch('loadPlayer')
+    await store.dispatch('GetPlaylist', route.params.playlist)
+    await store.dispatch('loadPlaylists')
   },
-  data() {
-    return {
-      playlist: null,
-      tracks: null,
-    }
-  },
-
   computed: {
-    ...mapGetters(['player', 'playlists']),
+    ...mapGetters(['player', 'playlists', 'playlist']),
   },
-  created() {
-    this.$store.dispatch('loadPlayer')
-    this.$store.dispatch('loadPlaylists')
-  },
+
   mounted() {
     this.refresh()
   },
@@ -77,6 +59,7 @@ export default {
       setInterval(() => {
         this.$store.dispatch('loadPlayer')
         this.$store.dispatch('loadPlaylists')
+        this.$store.dispatch('GetPlaylist', this.$route.params.playlist)
       }, 1000)
     },
   },

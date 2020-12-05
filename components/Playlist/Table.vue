@@ -29,114 +29,25 @@
       </tr>
     </thead>
     <tbody class="bg-playerbg divide-y divide-gray-200">
-      <tr v-for="track in tracks" :key="track.id">
-        <td class="px-6 py-4 whitespace-nowrap">
-          <div class="flex items-center">
-            <div class="flex items-center flex-shrink-0 h-10">
-              <img
-                class="h-10 w-10 rounded"
-                :src="track.track.album.images[0].url"
-                alt=""
-              />
-            </div>
-            <div class="ml-4">
-              <div class="text-sm font-medium">
-                {{ track.track.name }}
-              </div>
-              <div class="flex">
-                <div
-                  v-for="artist in track.track.artists"
-                  :key="artist.id"
-                  class="text-xs mr-5 text-gray-400"
-                >
-                  {{ artist.name }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </td>
-        <td class="px-6 py-4 whitespace-nowrap">
-          <div class="text-sm">
-            {{ track.track.album.name }}
-          </div>
-        </td>
-        <td class="px-6 py-4 whitespace-nowrap">
-          <div class="text-sm">
-            {{ millisToMinutesAndSeconds(track.track.duration_ms) }}
-          </div>
-        </td>
-        <td class="px-6 py-4 whitespace-nowrap">
-          <div class="flex items-center justify-center">
-            <div class="group inline-block text-black cursor-pointer">
-              <button
-                class="outline-none focus:outline-none border px-3 py-1 bg-white rounded-sm flex items-center min-w-32"
-              >
-                <span class="pr-1 font-semibold flex-1">Options</span>
-              </button>
-              <ul
-                class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
-              >
-                <li
-                  class="rounded-sm px-3 py-1 hover:bg-gray-100"
-                  @click="play(track.track.uri)"
-                >
-                  Play
-                </li>
-                <li
-                  class="rounded-sm px-3 py-1 hover:bg-gray-100"
-                  @click="addToQueue(track.track.uri)"
-                >
-                  Add to queue
-                </li>
-                <li class="rounded-sm relative px-3 py-1 hover:bg-gray-100">
-                  <button
-                    class="w-full text-left flex items-center outline-none focus:outline-none"
-                  >
-                    <span class="pr-1 flex-1">Add to playlist</span>
-                    <span class="mr-auto">
-                      <svg
-                        class="fill-current h-4 w-4 transition duration-150 ease-in-out"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                  <ul
-                    class="bg-white flex flex-col border rounded-sm absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left"
-                  >
-                    <li
-                      v-for="playlist in playlists"
-                      :key="playlist.id"
-                      class="px-3 py-1 hover:bg-gray-100"
-                      @click="addToPlaylist(playlist.id, track.track.uri)"
-                    >
-                      {{ playlist.name }}
-                    </li>
-                  </ul>
-                </li>
-                <li
-                  class="rounded-sm px-3 py-1 hover:bg-gray-100"
-                  @click="deleteFromPlaylist(track.track.uri)"
-                >
-                  Delete
-                </li>
-              </ul>
-            </div>
-          </div>
-        </td>
-      </tr>
+      <Track
+        v-for="track in tracks"
+        :key="track.id"
+        :track="track"
+        :playlists="playlists.items"
+      />
     </tbody>
   </table>
 </template>
 
 <script>
+import Track from './TableComponents/Track'
 export default {
+  components: {
+    Track,
+  },
   // eslint-disable-next-line vue/require-prop-types
   props: ['playlists', 'tracks'],
+
   methods: {
     millisToMinutesAndSeconds(millis) {
       const minutes = Math.floor(millis / 60000)
@@ -159,7 +70,7 @@ export default {
           this.$toast.success('Successfully added')
           await this.$store.dispatch('loadPlayer')
         } else {
-          this.$toast.error('Failed to add', { duration: 5000 })
+          this.$toast.error('Failed to add', { duration: 2500 })
         }
       })
     },
@@ -175,7 +86,7 @@ export default {
           this.$toast.success('Successfully added')
           await this.$store.dispatch('loadPlaylists')
         } else {
-          this.$toast.error('Failed to add', { duration: 5000 })
+          this.$toast.error('Failed to add', { duration: 2500 })
         }
       })
     },
@@ -196,7 +107,7 @@ export default {
           this.$toast.success('Successfully added')
           await this.$store.dispatch('loadPlaylists')
         } else {
-          this.$toast.error('Failed to add', { duration: 5000 })
+          this.$toast.error('Failed to add', { duration: 2500 })
         }
       })
     },
@@ -217,7 +128,7 @@ export default {
           this.$toast.success('Successfully deleted')
           await this.$store.dispatch('loadPlaylists')
         } else {
-          this.$toast.error('Failed to delete', { duration: 5000 })
+          this.$toast.error('Failed to delete', { duration: 2500 })
         }
       })
     },

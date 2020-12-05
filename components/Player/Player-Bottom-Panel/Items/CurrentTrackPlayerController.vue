@@ -1,5 +1,9 @@
 <template>
-  <div v-if="player.item" class="flex items-center" style="height: 80px">
+  <div
+    v-if="player && player.item && player.device"
+    class="flex items-center"
+    style="height: 80px"
+  >
     <div class="ml-3">
       <img :src="player.item.album.images[0].url" width="50px" alt="" />
     </div>
