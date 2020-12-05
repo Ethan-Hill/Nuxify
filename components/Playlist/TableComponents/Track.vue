@@ -186,7 +186,7 @@ export default {
         body: JSON.stringify(data),
       }).then(async (resp) => {
         if (resp.ok) {
-          this.$toast.success('Successfully playing')
+          this.$toast.success('Successfully playing', { duration: 2500 })
           await this.$store.dispatch('loadPlayer')
         } else {
           this.$toast.error('Failed to add', { duration: 2500 })
@@ -202,7 +202,7 @@ export default {
         },
       }).then(async (resp) => {
         if (resp.ok) {
-          this.$toast.success('Successfully added')
+          this.$toast.success('Successfully added', { duration: 2500 })
           await this.$store.dispatch('loadPlaylists')
         } else {
           this.$toast.error('Failed to add', { duration: 2500 })
@@ -223,7 +223,7 @@ export default {
         body: JSON.stringify(data),
       }).then(async (resp) => {
         if (resp.ok) {
-          this.$toast.success('Successfully added')
+          this.$toast.success('Successfully added', { duration: 2500 })
           await this.$store.dispatch('loadPlaylists')
         } else {
           this.$toast.error('Failed to add', { duration: 2500 })
@@ -244,7 +244,7 @@ export default {
         body: JSON.stringify(data),
       }).then(async (resp) => {
         if (resp.ok) {
-          this.$toast.success('Successfully deleted')
+          this.$toast.success('Successfully deleted', { duration: 2500 })
           await this.$store.dispatch('loadPlaylists')
         } else {
           this.$toast.error('Failed to delete', { duration: 2500 })
