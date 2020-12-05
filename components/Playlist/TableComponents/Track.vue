@@ -132,19 +132,19 @@
               >
                 Play
               </a>
-              <!-- <a
+              <a
                 href="#"
                 class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
                 @click="addToQueue(track.track.uri)"
               >
                 Add to queue
-              </a> -->
-              <a
+              </a>
+              <!-- <a
                 href="#"
                 class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
               >
                 Add to playlist
-              </a>
+              </a> -->
               <a
                 href="#"
                 class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
@@ -255,30 +255,4 @@ export default {
 }
 </script>
 
-<style scoped>
-li > ul {
-  transform: translatex(100%) scale(0);
-}
-li:hover > ul {
-  transform: translatex(101%) scale(1);
-}
-li > button svg {
-  transform: rotate(-90deg);
-}
-li:hover > button svg {
-  transform: rotate(-270deg);
-}
-.group:hover .group-hover\:scale-100 {
-  transform: scale(1);
-  z-index: 999;
-}
-.group:hover .group-hover\:-rotate-180 {
-  transform: rotate(180deg);
-}
-.scale-0 {
-  transform: scale(0);
-}
-.min-w-32 {
-  min-width: 8rem;
-}
-</style>
+<style scoped></style>
