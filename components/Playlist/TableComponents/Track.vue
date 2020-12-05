@@ -116,12 +116,6 @@
             </button>
 
             <div
-              x-show="dropdownOpen"
-              class="inset-0 z-10"
-              @click="dropdownOpen = false"
-            ></div>
-
-            <div
               v-if="dropdownOpen"
               class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20"
             >
@@ -188,8 +182,10 @@ export default {
         if (resp.ok) {
           this.$toast.success('Successfully playing', { duration: 2500 })
           await this.$store.dispatch('loadPlayer')
+          this.dropdownOpen = false
         } else {
           this.$toast.error('Failed to add', { duration: 2500 })
+          this.dropdownOpen = false
         }
       })
     },
@@ -204,8 +200,10 @@ export default {
         if (resp.ok) {
           this.$toast.success('Successfully added', { duration: 2500 })
           await this.$store.dispatch('loadPlaylists')
+          this.dropdownOpen = false
         } else {
           this.$toast.error('Failed to add', { duration: 2500 })
+          this.dropdownOpen = false
         }
       })
     },
@@ -225,8 +223,10 @@ export default {
         if (resp.ok) {
           this.$toast.success('Successfully added', { duration: 2500 })
           await this.$store.dispatch('loadPlaylists')
+          this.dropdownOpen = false
         } else {
           this.$toast.error('Failed to add', { duration: 2500 })
+          this.dropdownOpen = false
         }
       })
     },
@@ -246,8 +246,10 @@ export default {
         if (resp.ok) {
           this.$toast.success('Successfully deleted', { duration: 2500 })
           await this.$store.dispatch('loadPlaylists')
+          this.dropdownOpen = false
         } else {
           this.$toast.error('Failed to delete', { duration: 2500 })
+          this.dropdownOpen = false
         }
       })
     },
