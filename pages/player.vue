@@ -17,7 +17,10 @@
         />
         <Playlists v-if="playlists" :playlists="playlists.items" />
       </div>
-      <PlayerController :player="player" />
+      <PlayerController
+        v-if="player && this.$auth.user.product === 'premium'"
+        :player="player"
+      />
     </main>
   </div>
 </template>

@@ -117,31 +117,31 @@
 
             <div
               v-if="dropdownOpen"
-              class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20"
+              class="absolute right-0 mb-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20"
             >
               <a
                 href="#"
-                class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                class="block px-4 mb-0 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
                 @click="play(track.track.uri)"
               >
                 Play
               </a>
               <a
                 href="#"
-                class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                class="block mb-0 px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
                 @click="addToQueue(track.track.uri)"
               >
                 Add to queue
               </a>
               <!-- <a
                 href="#"
-                class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                class="block px-4 mb-0  py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
               >
                 Add to playlist
               </a> -->
               <a
                 href="#"
-                class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                class="block px-4 mb-0 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
                 @click="deleteFromPlaylist(track.track.uri)"
               >
                 Delete
