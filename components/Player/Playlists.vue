@@ -1,6 +1,6 @@
 <template>
   <div class="mx-6">
-    <h1 class="mb-5 my-5 text-2xl">Playlists</h1>
+    <h1 class="my-5 mb-5 text-2xl">Playlists</h1>
     <div
       v-if="playlists"
       class="flex flex-col mr-5 overflow-y-auto"
@@ -9,7 +9,7 @@
       <div
         v-for="playlist in playlists"
         :key="playlist.id"
-        class="flex ml-5 py-5 mt-5 transition rounded duration-100 ease-in-out cursor-pointer"
+        class="flex py-5 mt-5 ml-5 transition duration-100 ease-in-out rounded cursor-pointer"
         onMouseOver="this.style.background='#282828'"
         onMouseOut="this.style.background='#181818'"
         style="width: 500px"
@@ -29,7 +29,7 @@
       style="min-width: 550px; height: 300px; background-color: #181818"
     >
       <div
-        class="flex ml-5 py-5 mt-5 transition rounded duration-100 ease-in-out cursor-pointer"
+        class="flex py-5 mt-5 ml-5 transition duration-100 ease-in-out rounded cursor-pointer"
         onMouseOver="this.style.background='#282828'"
         onMouseOut="this.style.background='#181818'"
         style="width: 500px"
@@ -48,7 +48,7 @@ export default {
   props: ['playlists'],
   methods: {
     playlistURL(key) {
-      location.href = `https://nuxify.vercel.app/playlist/${key}`
+      location.href = `http://localhost:3000/playlist/${key}` // `https://nuxify.vercel.app/playlist/${key}`
     },
   },
 }
