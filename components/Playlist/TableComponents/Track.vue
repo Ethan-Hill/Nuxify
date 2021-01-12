@@ -4,7 +4,7 @@
       <div class="flex items-center">
         <div class="flex items-center flex-shrink-0 h-10">
           <img
-            class="h-10 w-10 rounded"
+            class="w-10 h-10 rounded"
             :src="track.track.album.images[0].url"
             alt=""
           />
@@ -17,7 +17,7 @@
             <div
               v-for="artist in track.track.artists"
               :key="artist.id"
-              class="text-xs mr-5 text-gray-400"
+              class="mr-5 text-xs text-gray-400"
             >
               {{ artist.name }}
             </div>
@@ -37,35 +37,35 @@
     </td>
     <td class="px-6 py-4 whitespace-nowrap">
       <div class="flex items-center justify-center">
-        <div class="group inline-block text-black cursor-pointer">
-          <!-- <button
-            class="outline-none focus:outline-none border px-3 py-1 bg-white rounded-sm flex items-center min-w-32"
+        <div class="inline-block text-black cursor-pointer group">
+          <button
+            class="flex items-center px-3 py-1 bg-white border rounded-sm outline-none focus:outline-none min-w-32"
           >
-            <span class="pr-1 font-semibold flex-1">Options</span>
+            <span class="flex-1 pr-1 font-semibold">Options</span>
           </button>
           <ul
-            class="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top min-w-32"
+            class="absolute transition duration-150 ease-in-out origin-top transform scale-0 bg-white border rounded-sm group-hover:scale-100 min-w-32"
           >
             <li
-              class="rounded-sm px-3 py-1 hover:bg-gray-100"
+              class="px-3 py-1 rounded-sm hover:bg-gray-100"
               @click="play(track.track.uri)"
             >
               Play
             </li>
             <li
-              class="rounded-sm px-3 py-1 hover:bg-gray-100"
+              class="px-3 py-1 rounded-sm hover:bg-gray-100"
               @click="addToQueue(track.track.uri)"
             >
               Add to queue
             </li>
-            <li class="rounded-sm relative px-3 py-1 hover:bg-gray-100">
+            <li class="relative px-3 py-1 rounded-sm hover:bg-gray-100">
               <button
-                class="w-full text-left flex items-center outline-none focus:outline-none"
+                class="flex items-center w-full text-left outline-none focus:outline-none"
               >
-                <span class="pr-1 flex-1">Add to playlist</span>
+                <span class="flex-1 pr-1">Add to playlist</span>
                 <span class="mr-auto">
                   <svg
-                    class="fill-current h-4 w-4 transition duration-150 ease-in-out"
+                    class="w-4 h-4 transition duration-150 ease-in-out fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -76,7 +76,7 @@
                 </span>
               </button>
               <ul
-                class="bg-white flex flex-col border rounded-sm absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left"
+                class="absolute top-0 right-0 flex flex-col transition duration-150 ease-in-out origin-top-left bg-white border rounded-sm"
               >
                 <li
                   v-for="playlist in playlists"
@@ -89,20 +89,20 @@
               </ul>
             </li>
             <li
-              class="rounded-sm px-3 py-1 hover:bg-gray-100"
+              class="px-3 py-1 rounded-sm hover:bg-gray-100"
               @click="deleteFromPlaylist(track.track.uri)"
             >
               Delete
             </li>
-          </ul> -->
+          </ul>
 
           <div class="relative">
             <button
-              class="relative z-10 block rounded-md bg-white p-2 focus:outline-none"
+              class="relative z-10 block p-2 bg-white rounded-md focus:outline-none"
               @click="dropdownOpen = !dropdownOpen"
             >
               <svg
-                class="h-5 w-5 text-gray-800"
+                class="w-5 h-5 text-gray-800"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -117,31 +117,31 @@
 
             <div
               v-if="dropdownOpen"
-              class="absolute right-0 mb-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20"
+              class="absolute right-0 z-20 w-48 py-2 mt-2 mb-0 bg-white rounded-md shadow-xl"
             >
               <a
                 href="#"
-                class="block px-4 mb-0 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize hover:bg-blue-500 hover:text-white"
                 @click="play(track.track.uri)"
               >
                 Play
               </a>
               <a
                 href="#"
-                class="block mb-0 px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize hover:bg-blue-500 hover:text-white"
                 @click="addToQueue(track.track.uri)"
               >
                 Add to queue
               </a>
               <!-- <a
                 href="#"
-                class="block px-4 mb-0  py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize hover:bg-blue-500 hover:text-white"
               >
                 Add to playlist
               </a> -->
               <a
                 href="#"
-                class="block px-4 mb-0 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize hover:bg-blue-500 hover:text-white"
                 @click="deleteFromPlaylist(track.track.uri)"
               >
                 Delete
