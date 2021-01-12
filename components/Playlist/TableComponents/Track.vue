@@ -38,7 +38,7 @@
     <td class="px-6 py-4 whitespace-nowrap">
       <div class="flex items-center justify-center">
         <div class="inline-block text-black cursor-pointer group">
-          <button
+          <!-- <button
             class="flex items-center px-3 py-1 bg-white border rounded-sm outline-none focus:outline-none min-w-32"
           >
             <span class="flex-1 pr-1 font-semibold">Options</span>
@@ -94,7 +94,7 @@
             >
               Delete
             </li>
-          </ul>
+          </ul> -->
 
           <div class="relative">
             <button
