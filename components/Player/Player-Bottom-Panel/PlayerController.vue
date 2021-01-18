@@ -1,11 +1,11 @@
 <template>
   <nav
-    class="flex items-center flex-wrap justify-between fixed bottom-0 w-screen min-h-24"
+    class="fixed bottom-0 flex flex-wrap items-center justify-between w-screen min-h-24"
     style="background-color: #282828"
   >
     <CurrentTrackPlayerController
       v-if="player && player.device"
-      class="ml-5 flex-1"
+      class="flex-1 ml-5"
       :player="player"
     />
     <PlayerControllerPanel
@@ -15,7 +15,7 @@
     />
     <Volume
       v-if="player && player.device"
-      class="mr-5 flex-1"
+      class="flex-1 mr-5"
       :player="player"
     />
   </nav>
@@ -39,5 +39,6 @@ export default {
 <style>
 div {
   font-family: GothamPro;
+  font-display: swap;
 }
 </style>

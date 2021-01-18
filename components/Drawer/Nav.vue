@@ -1,22 +1,22 @@
 <template>
   <div>
     <div class="absolute top-0 left-0 h-screen">
-      <button class="text-white text-2xl p-2 font-bold" @click="toggle()">
+      <button class="p-2 text-2xl font-bold text-white" @click="toggle()">
         &#9776;
       </button>
     </div>
     <nav
       :class="open ? 'navbar-open' : 'navbar-close'"
-      class="flex flex-col navbar w-64 absolute top-0 h-screen bg-navbg"
+      class="absolute top-0 flex flex-col w-64 h-screen navbar bg-navbg"
     >
-      <div class="flex pr-2 justify-end">
-        <button class="p-2 text-white text-xl font-bold" @click="toggle()">
+      <div class="flex justify-end pr-2">
+        <button class="p-2 text-xl font-bold text-white" @click="toggle()">
           &#9747;
         </button>
       </div>
       <Login v-if="!this.$auth.loggedIn" :login="{ name: 'Login' }" />
       <User v-else />
-      <h1 class="text-3xl text-center mt-10 font-bold pt-2 text-spotify">
+      <h1 class="pt-2 mt-10 text-3xl font-bold text-center text-spotify">
         Menu
       </h1>
       <NavItem :menu-item="{ name: 'Home', href: '/' }" />
@@ -66,5 +66,6 @@ export default {
 
 div {
   font-family: GothamPro;
+  font-display: swap;
 }
 </style>
