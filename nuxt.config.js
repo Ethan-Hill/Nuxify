@@ -58,10 +58,10 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
   pwa: {
-	workbox: {
-	  clientsClaim: false
-	}
-  }
+    workbox: {
+      clientsClaim: false,
+    },
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   router: {
