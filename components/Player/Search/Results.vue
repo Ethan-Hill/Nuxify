@@ -9,10 +9,9 @@
       <div
         v-for="searchedTrack in searchedTracks"
         :key="searchedTrack.id"
-        class="flex flex-col items-center justify-around py-5 my-5 ml-5 text-center transition duration-100 ease-in-out rounded cursor-pointer"
+        class="flex flex-col items-center justify-around w-full h-full py-5 mx-5 my-5 text-center transition duration-100 ease-in-out rounded cursor-pointer"
         onMouseOver="this.style.background='#282828'"
         onMouseOut="this.style.background='#181818'"
-        style="width: 300px; min-height: 350px"
       >
         <div v-if="searchedTrack.album.images[0]" class="ml-5">
           <img

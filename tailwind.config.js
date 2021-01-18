@@ -14,4 +14,14 @@ module.exports = {
   },
   variants: {},
   plugins: [require('@tailwindcss/ui')],
+  purge: {
+    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
+    content: [
+      `./components/**/*.{vue,js}`,
+      `./layouts/**/*.vue`,
+      `./pages/**/*.vue`,
+      `./plugins/**/*.{js,ts}`,
+      `./nuxt.config.{js,ts}`,
+    ],
+  },
 }

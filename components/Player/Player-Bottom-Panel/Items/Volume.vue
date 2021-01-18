@@ -1,15 +1,17 @@
 <template>
   <div class="flex justify-end">
-    <input
-      v-if="player.device"
-      :value="player.device.volume_percent"
-      class="rounded-lg overflow-hidden appearance-none bg-gray-400 h-3"
-      type="range"
-      min="0"
-      max="100"
-      step="1"
-      @change="setVolume($event)"
-    />
+    <label>
+      <input
+        v-if="player.device"
+        id="volumeController"
+        :value="player.device.volume_percent"
+        class="h-3 overflow-hidden bg-gray-400 rounded-lg appearance-none"
+        type="range"
+        min="0"
+        max="100"
+        step="1"
+        @change="setVolume($event)"
+    /></label>
   </div>
 </template>
 

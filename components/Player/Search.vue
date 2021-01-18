@@ -1,14 +1,15 @@
 <template>
-  <div class="pt-2 mx-auto text-gray-600">
-    <input
-      v-model="search"
-      class="border-2 border-gray-300 bg-white h-10 rounded-lg text-sm focus:outline-none text-center"
-      style="width: 500px"
-      type="search"
-      name="search"
-      placeholder="Search..."
-      @keypress.enter="searchTrack"
-    />
+  <div class="w-6/12 pt-2 text-gray-600">
+    <label>
+      <input
+        id="search"
+        v-model="search"
+        class="w-full h-10 text-sm text-center bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
+        type="search"
+        name="search"
+        placeholder="Search..."
+        @keypress.enter="searchTrack"
+    /></label>
   </div>
 </template>
 
