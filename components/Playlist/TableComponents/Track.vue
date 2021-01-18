@@ -98,7 +98,7 @@
 
           <div class="relative">
             <button
-              class="relative z-10 block p-2 bg-white rounded-md focus:outline-none"
+              class="relative z-50 block p-2 bg-white rounded-md focus:outline-none"
               @click="dropdownOpen = !dropdownOpen"
             >
               <svg

@@ -4,31 +4,31 @@
       <tr>
         <th
           scope="col"
-          class="px-6 py-3 bg-playerbg text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase bg-playerbg"
         >
           Title
         </th>
         <th
           scope="col"
-          class="px-6 py-3 bg-playerbg text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase bg-playerbg"
         >
           Album
         </th>
         <th
           scope="col"
-          class="px-6 py-3 bg-playerbg text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase bg-playerbg"
         >
           Duration
         </th>
         <th
           scope="col"
-          class="px-6 py-3 bg-playerbg text-left text-xs font-medium text-gray-300 uppercase tracking-wider"
+          class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-300 uppercase bg-playerbg"
         >
           Options
         </th>
       </tr>
     </thead>
-    <tbody class="bg-playerbg divide-y divide-gray-200">
+    <tbody class="divide-y divide-gray-200 bg-playerbg">
       <Track
         v-for="track in tracks"
         :key="track.id"
