@@ -119,33 +119,29 @@
               v-if="dropdownOpen"
               class="absolute right-0 z-20 w-48 py-2 mt-2 mb-0 bg-white rounded-md shadow-xl"
             >
-              <a
-                href="#"
-                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize hover:bg-blue-500 hover:text-white"
+              <button
+                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize cursor-pointer hover:bg-blue-500 hover:text-white"
                 @click="play(track.track.uri)"
               >
                 Play
-              </a>
-              <a
-                href="#"
-                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize hover:bg-blue-500 hover:text-white"
+              </button>
+              <button
+                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize cursor-pointer hover:bg-blue-500 hover:text-white"
                 @click="addToQueue(track.track.uri)"
               >
                 Add to queue
-              </a>
-              <!-- <a
-                href="#"
-                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize hover:bg-blue-500 hover:text-white"
+              </button>
+              <!-- <button
+                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize cursor-pointer hover:bg-blue-500 hover:text-white"
               >
                 Add to playlist
-              </a> -->
-              <a
-                href="#"
-                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize hover:bg-blue-500 hover:text-white"
+              </button> -->
+              <button
+                class="block px-4 py-2 mb-0 text-sm text-gray-700 capitalize cursor-pointer hover:bg-blue-500 hover:text-white"
                 @click="deleteFromPlaylist(track.track.uri)"
               >
                 Delete
-              </a>
+              </button>
             </div>
           </div>
         </div>
