@@ -6,7 +6,7 @@
           <img
             class="w-10 h-10 rounded"
             :src="track.track.album.images[0].url"
-            alt=""
+            alt="TrackAlbumImage"
           />
         </div>
         <div class="ml-4">

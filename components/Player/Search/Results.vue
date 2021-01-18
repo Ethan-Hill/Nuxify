@@ -1,28 +1,33 @@
 <template>
   <div class="mx-6">
-    <h1 class="mb-5 mx-6 flex-wrap text-2xl">Tracks</h1>
+    <h1 class="flex-wrap mx-6 mb-5 text-2xl">Tracks</h1>
     <div
       v-if="tracks"
-      class="flex flex-wrap mb-24 justify-around overflow-y-auto"
+      class="flex flex-wrap justify-around mb-24 overflow-y-auto"
       style="max-width: 1300px; height: 400px; background-color: #181818"
     >
       <div
         v-for="searchedTrack in searchedTracks"
         :key="searchedTrack.id"
-        class="flex flex-col justify-around items-center ml-5 py-5 my-5 transition rounded duration-100 ease-in-out cursor-pointer text-center"
+        class="flex flex-col items-center justify-around py-5 my-5 ml-5 text-center transition duration-100 ease-in-out rounded cursor-pointer"
         onMouseOver="this.style.background='#282828'"
         onMouseOut="this.style.background='#181818'"
         style="width: 300px; min-height: 350px"
       >
         <div v-if="searchedTrack.album.images[0]" class="ml-5">
-          <img :src="searchedTrack.album.images[0].url" width="70px" alt="" />
+          <img
+            :src="searchedTrack.album.images[0].url"
+            width="70px"
+            height="70x"
+            alt="ResultTrackImage"
+          />
         </div>
         <div class="flex flex-col items-center mt-5 ml-5">
           <h1 class="text-2xl">{{ searchedTrack.name }}</h1>
-          <h1 class="text-lg mt-6">{{ searchedTrack.artists[0].name }}</h1>
+          <h1 class="mt-6 text-lg">{{ searchedTrack.artists[0].name }}</h1>
         </div>
         <div
-          class="flex items-center mt-2 ml-5 py-1 px-3 rounded"
+          class="flex items-center px-3 py-1 mt-2 ml-5 rounded"
           style="background-color: #282828"
           onMouseOver="this.style.background='#383838'"
           onMouseOut="this.style.background='#282828'"
@@ -31,7 +36,7 @@
           <h1 class="text-sm">Play</h1>
         </div>
         <div
-          class="flex items-center ml-5 py-1 px-3 rounded"
+          class="flex items-center px-3 py-1 ml-5 rounded"
           style="background-color: #282828"
           onMouseOver="this.style.background='#383838'"
           onMouseOut="this.style.background='#282828'"
@@ -47,7 +52,7 @@
       style="min-width: 550px; height: 300px; background-color: #181818"
     >
       <div
-        class="flex ml-5 py-5 mt-5 transition rounded duration-100 ease-in-out cursor-pointer"
+        class="flex py-5 mt-5 ml-5 transition duration-100 ease-in-out rounded cursor-pointer"
         onMouseOver="this.style.background='#282828'"
         onMouseOut="this.style.background='#282828'"
         style="width: 500px"

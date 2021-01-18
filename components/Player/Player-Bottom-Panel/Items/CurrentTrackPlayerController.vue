@@ -5,14 +5,19 @@
     style="height: 80px"
   >
     <div class="ml-3">
-      <img :src="player.item.album.images[0].url" width="50px" alt="" />
+      <img
+        :src="player.item.album.images[0].url"
+        width="50px"
+        alt="TrackImage"
+        height="50px"
+      />
     </div>
     <div class="ml-3">
       <h1>{{ player.item.name }}</h1>
       <div
         v-for="artist in player.item.artists"
         :key="artist.id"
-        class="text-xs mr-5 text-gray-400"
+        class="mr-5 text-xs text-gray-400"
       >
         <h2>{{ artist.name }}</h2>
       </div>

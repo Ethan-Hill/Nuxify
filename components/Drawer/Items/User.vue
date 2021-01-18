@@ -1,12 +1,17 @@
 <template>
   <div
-    class="flex justify-evenly items-center text-white text-center transition mt-4 mx-4 py-4 rounded duration-100 ease-in-out cursor-pointer"
+    class="flex items-center py-4 mx-4 mt-4 text-center text-white transition duration-100 ease-in-out rounded cursor-pointer justify-evenly"
     onMouseOver="this.style.background='#282828'"
     onMouseOut="this.style.background='#040404'"
     @click="account"
   >
     <div v-if="this.$auth.user.images[0]">
-      <img :src="this.$auth.user.images[0].url" width="25px" />
+      <img
+        :src="this.$auth.user.images[0].url"
+        width="25px"
+        height="25px"
+        alt="UserImage"
+      />
     </div>
     <div v-else>
       <svg

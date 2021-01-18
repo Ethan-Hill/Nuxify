@@ -3,14 +3,19 @@
     <h1 class="my-5 text-2xl">Currently Playing</h1>
     <div
       v-if="player"
-      class="flex flex-col mb-2 justify-evenly mr-5 transition duration-100 ease-in-out cursor-pointer"
+      class="flex flex-col mb-2 mr-5 transition duration-100 ease-in-out cursor-pointer justify-evenly"
       style="width: 550px; height: 300px; background-color: #181818"
       onMouseOver="this.style.background='#282828'"
       onMouseOut="this.style.background='#181818'"
       @click="songURL"
     >
       <div class="ml-5">
-        <img :src="player.item.album.images[0].url" width="150px" alt="" />
+        <img
+          :src="player.item.album.images[0].url"
+          width="150px"
+          height="150px"
+          alt="CurrentlyPlayingTrackImage"
+        />
       </div>
       <div class="ml-5">
         <h1 class="text-3xl">{{ player.item.name }}</h1>
@@ -19,7 +24,7 @@
     </div>
     <div
       v-else
-      class="flex flex-col justify-evenly mr-5"
+      class="flex flex-col mr-5 justify-evenly"
       style="width: 550px; height: 300px; background-color: #181818"
     >
       <div class="ml-5">

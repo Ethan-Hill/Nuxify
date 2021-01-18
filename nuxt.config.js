@@ -6,6 +6,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'description', content: 'Spotify All In One.' },
+      { name: 'theme-color', content: '#151c3c' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -42,7 +43,11 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/auth-next',
     '@nuxtjs/toast',
+    '@nuxtjs/robots',
   ],
+  robots: {
+    UserAgent: '*',
+  },
   toast: {
     position: 'top-center',
   },

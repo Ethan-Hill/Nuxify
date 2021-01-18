@@ -16,7 +16,12 @@
         @click="playlistURL(playlist.id)"
       >
         <div v-if="playlist.images && playlist.images[0]" class="ml-5">
-          <img :src="playlist.images[0].url" width="70px" alt="" />
+          <img
+            :src="playlist.images[0].url"
+            width="70px"
+            height="70px"
+            alt="PlaylistImage"
+          />
         </div>
         <div class="flex items-center ml-5">
           <h1 class="text-3xl">{{ playlist.name }}</h1>
